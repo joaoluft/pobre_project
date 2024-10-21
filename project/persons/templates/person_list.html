@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Lista de Pessoas</h2>
+  <a href="{% url 'person-create' %}" class="btn btn-success mb-3">Cadastrar nova pessoa</a>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Person Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in people %}
+      <tr>
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.person_type.get_type_display }}</td>
+        <td>
+          <a href="{% url 'person-update' person.id %}" class="btn btn-primary">Atualizar</a>
+          <a href="{% url 'person-delete' person.id %}" class="btn btn-danger">Deletar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python pobre_project/manage.py runserver
+python project/manage.py runserver

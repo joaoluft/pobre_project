@@ -1,3 +1,3 @@
-# Pobre project
+# Project
 
 Repositório para aplicar aprendizados sobre DJANGO.

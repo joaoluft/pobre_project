@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% if object %}Atualizar Pessoa{% else %}Criar Pessoa{% endif %}</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if object %}Atualizar{% else %}Criar{% endif %}</button>
+  </form>
+  <a href="{% url 'person-list' %}" class="btn btn-secondary">Voltar ao inicio</a>
+{% endblock %}
