@@ -1,2 +1,3 @@
-# ola_django
-repositorio para aprender django
+# Pobre project
+
+Repositório para aplicar aprendizados sobre DJANGO.
