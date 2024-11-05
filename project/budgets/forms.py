@@ -1,5 +1,5 @@
 from django import forms
-from .models import Budget, IncomeSource, Expense, Cost, Tracking
+from .models import Budget, IncomeSource, Expense, Tracking
 
 class BudgetForm(forms.ModelForm):
     class Meta:
@@ -14,11 +14,6 @@ class IncomeSourceForm(forms.ModelForm):
 class ExpenseForm(forms.ModelForm):
     class Meta:
         model = Expense
-        fields = '__all__'
-
-class CostForm(forms.ModelForm):
-    class Meta:
-        model = Cost
         fields = '__all__'
 
 class TrackingForm(forms.ModelForm):

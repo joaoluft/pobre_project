@@ -1,0 +1,19 @@
+services:
+  app:
+    container_name: pobre-project-django
+    build:
+      context: ./
+      dockerfile: .devops/Docker/Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    networks:
+      - pobre-project
+
+networks:
+  pobre-project:
+    name: pobre-project
+    driver: bridge

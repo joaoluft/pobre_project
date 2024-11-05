@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreamentos</title>
+</head>
+<body>
+    <h1>Rastreamentos</h1>
+    <a href="{% url 'tracking_create' budget_id %}">Adicionar Rastreamento</a>
+    <ul>
+        {% for tracking in trackings %}
+            <li>
+                {{ tracking.date }} - Renda: {{ tracking.actual_income }} - Despesa: {{ tracking.actual_expense }} 
+                <a href="{% url 'tracking_update' tracking.pk %}">Editar</a>
+                <a href="{% url 'tracking_delete' tracking.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'budget_list' %}">Voltar</a>
+</body>
+</html>

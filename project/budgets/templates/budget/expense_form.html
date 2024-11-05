@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if form.instance.pk %}Editar Orçamento{% else %}Criar Orçamento{% endif %}</title>
+    <title>{% if form.instance.pk %}Editar Despesa{% else %}Adicionar Despesa{% endif %}</title>
 </head>
 <body>
-    <h1>{% if form.instance.pk %}Editar Orçamento{% else %}Criar Orçamento{% endif %}</h1>
+    <h1>{% if form.instance.pk %}Editar Despesa{% else %}Adicionar Despesa{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Salvar</button>
     </form>
-    <a href="{% url 'budget_list' %}">Voltar</a>
+    <a href="{% url 'expense_list' budget_id %}">Voltar</a>
 </body>
 </html>

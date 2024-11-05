@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes de Renda</title>
+</head>
+<body>
+    <h1>Fontes de Renda</h1>
+    <a href="{% url 'income_source_create' budget_id %}">Adicionar Fonte de Renda</a>
+    <ul>
+        {% for income_source in income_sources %}
+            <li>
+                {{ income_source.description }} - {{ income_source.amount }} 
+                <a href="{% url 'income_source_update' income_source.pk %}">Editar</a>
+                <a href="{% url 'income_source_delete' income_source.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'budget_list' %}">Voltar</a>
+</body>
+</html>

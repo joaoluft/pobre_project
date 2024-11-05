@@ -1,14 +1,23 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Budgets</h2>
-<a href="{% url 'budget_create' %}">Create New Budget</a>
-<ul>
-    {% for budget in budgets %}
-    <li>
-        {{ budget.name }} - {{ budget.goal }}
-        <a href="{% url 'budget_update' budget.pk %}">Edit</a>
-        <a href="{% url 'budget_delete' budget.pk %}">Delete</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Orçamentos</title>
+</head>
+<body>
+    <h1>Orçamentos</h1>
+    <a href="{% url 'budget_create' %}">Criar Novo Orçamento</a>
+    <ul>
+        {% for budget in budgets %}
+            <li>
+                {{ budget.name }} - <a href="{% url 'budget_update' budget.pk %}">Editar</a>
+                <a href="{% url 'budget_delete' budget.pk %}">Excluir</a>
+                <a href="{% url 'income_source_list' budget.pk %}">Fontes de Renda</a>
+                <a href="{% url 'expense_list' budget.pk %}">Despesas</a>
+                <a href="{% url 'tracking_list' budget.pk %}">Rastreamentos</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

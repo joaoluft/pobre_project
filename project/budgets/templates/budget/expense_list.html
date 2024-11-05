@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despesas</title>
+</head>
+<body>
+    <h1>Despesas</h1>
+    <a href="{% url 'expense_create' budget_id %}">Adicionar Despesa</a>
+    <ul>
+        {% for expense in expenses %}
+            <li>
+                {{ expense.description }} - {{ expense.amount }} - {{ expense.get_frequency_display }}
+                <a href="{% url 'expense_update' expense.pk %}">Editar</a>
+                <a href="{% url 'expense_delete' expense.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'budget_list' %}">Voltar</a>
+</body>
+</html>

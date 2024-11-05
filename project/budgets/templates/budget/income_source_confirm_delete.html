@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excluir Orçamento</title>
+    <title>Excluir Fonte de Renda</title>
 </head>
 <body>
-    <h1>Excluir Orçamento</h1>
-    <p>Você tem certeza que deseja excluir o orçamento "{{ budget.name }}"?</p>
+    <h1>Excluir Fonte de Renda</h1>
+    <p>Você tem certeza que deseja excluir a fonte de renda "{{ income_source.description }}"?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Confirmar</button>
     </form>
-    <a href="{% url 'budget_list' %}">Cancelar</a>
+    <a href="{% url 'income_source_list' budget_id %}">Cancelar</a>
 </body>
 </html>
